@@ -16,6 +16,9 @@ class User(AbstractUser):
     user_type = models.CharField(max_length=10, choices=USER_TYPE, null=True)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
+    created_time = models.DateTimeField(auto_created=True)
+    modified_time = models.DateTimeField(auto_now=True)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
     objects = CustomUserManager()
